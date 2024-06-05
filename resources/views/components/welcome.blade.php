@@ -3,6 +3,16 @@
 
     <h1 class="mt-8 text-2xl font-medium text-gray-900 dark:text-white">
         Welcome to your Jetstream application!
+        @role('super-admin')
+    <!-- Show admin-specific content -->
+    <p>Welcome, Admin!</p>
+@else
+    <!-- Show content for non-admin users -->
+    <p>Welcome, User!</p>
+@endrole
+@can('create-role')
+<p>Welcome, Admin!</p>
+@endcan
     </h1>
 
     <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">

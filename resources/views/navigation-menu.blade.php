@@ -15,9 +15,11 @@
                     <x-nav-link wire:navigate href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @role('super-admin')
                     <x-nav-link wire:navigate href="{{ route('billing') }}" :active="request()->routeIs('billing')">
                       {{ __('billing') }}
                   </x-nav-link>
+                  @endrole
                 </div>
             </div>
 

@@ -52,15 +52,8 @@ class SuperAdminSeeder extends Seeder
          
 
         // Custom role assignment to include team_id
-        DB::table('model_has_roles')->updateOrInsert([
-            'role_id' => $role->id,
-            'model_type' => User::class,
-            'model_id' => $superAdmin->id,
-            'team_id' => $team->id, // Explicitly set the team_id
-        ], [
-            'team_id' => $team->id, // Ensure team_id is set
-        ]);
-
+      
+        $superAdmin->assignRole($role);
         // Optionally, add specific permissions to the role if needed
         // Example: $role->givePermissionTo('some-permission');
     }
