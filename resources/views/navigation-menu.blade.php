@@ -16,10 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @role('super-admin')
-                    <x-nav-link wire:navigate href="{{ route('billing') }}" :active="request()->routeIs('billing')">
-                      {{ __('billing') }}
-                  </x-nav-link>
-                  @endrole
+                    
+                 
+                  <x-nav-link wire:navigate href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
+                    {{ __('roles') }}
+                </x-nav-link>
+                <x-nav-link wire:navigate href="{{ route('permissions.index') }}" :active="request()->routeIs('permissions.index')">
+                    {{ __('permissions') }}
+                </x-nav-link>
+                <x-nav-link wire:navigate href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                    {{ __('users') }}
+                </x-nav-link>
+                <x-nav-link wire:navigate href="{{ route('billing') }}" :active="request()->routeIs('billing')">
+                    {{ __('billing') }}
+                </x-nav-link>
+                @endrole
                 </div>
             </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Contracts\Permission;
 
 Route::get('/', function () {
     return view('welcome');
