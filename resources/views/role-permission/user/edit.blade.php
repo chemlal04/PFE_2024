@@ -33,27 +33,22 @@
                                 <input type="text" name="email" readonly value="{{ $user->email }}" class="form-control" />
                             </div>
                             <div class="mb-3">
-                                <label for="">Password</label>
-                                <input type="text" name="password" class="form-control" />
-                                @error('password') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label for="">Roles</label>
-                                <select name="roles[]" class="form-control" multiple>
+                                <select name="roles[]" class="bg-red-400" multiple>
                                     <option value="">Select Role</option>
                                     @foreach ($roles as $role)
-                                    <option
-                                        value="{{ $role }}"
-                                        {{ in_array($role, $userRoles) ? 'selected':'' }}
-                                    >
-                                        {{ $role }}
-                                    </option>
+                                        <option
+                                            value="{{ $role }}"
+                                            {{ in_array($role, $userRoles) ? 'selected' : '' }}
+                                        >
+                                            {{ $role }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('roles') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">save</button>
                             </div>
                         </form>
                     </div>

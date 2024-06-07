@@ -17,9 +17,9 @@
                 <div class="card mt-3">
                     <div class="card-header">
                         <h4>Users
-                          
-                            <a href="{{ url('users/create') }}" class="btn btn-primary float-end">Add User</a>
                             
+                            <a href="{{ url('users/create') }}" class="btn btn-primary float-end">Add User</a>
+                             
                         </h4>
                     </div>
                     <div class="card-body">
@@ -50,11 +50,10 @@
                                     <td>
                                          
                                         <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-success">Edit</a>
-                                        
-
-                                        
-                                        <a href="{{ url('users/'.$user->id.'/delete') }}" class="btn btn-danger mx-2">Delete</a>
                                          
+                                         
+                                        <a href="{{ url('users/'.$user->id.'/delete') }}" class="btn btn-danger mx-2">Delete</a>
+                                        
                                     </td>
                                 </tr>
                                 @endforeach
