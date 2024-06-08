@@ -6,6 +6,13 @@ use Spatie\Permission\Contracts\Permission;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/partner', function () {
+    return view('welcomepartner');
+});
+Route::get('/home', [App\Http\Controllers\UserController::class, 'home_dash'])->name('components.dashboard_components.admin_vol.home');
+Route::get('/discovery', [App\Http\Controllers\UserController::class, 'discovery_dash'])->name('components.dashboard_components.admin_vol.discovery');
+Route::get('/community', [App\Http\Controllers\UserController::class, 'community_dash'])->name('components.dashboard_components.admin_vol.community');
+Route::get('/coming_soon', [App\Http\Controllers\UserController::class, 'coming_soon_dash'])->name('components.dashboard_components.admin_vol.coming_soon');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -15,6 +22,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    
 });
 Route::middleware([
     'auth:sanctum',
@@ -49,5 +58,6 @@ Route::middleware([
 
    Route::resource('users', App\Http\Controllers\UserController::class);
    Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
+  
 });
 });

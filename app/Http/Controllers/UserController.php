@@ -92,4 +92,21 @@ class UserController extends Controller
 
         return redirect('/users')->with('status','User Delete Successfully');
     }
+    public function home_dash()
+    {
+        return view('components.dashboard_components.admin_vol.home');
+    }
+    public function community_dash()
+    {
+        return view('components.dashboard_components.admin_vol.community');
+    }
+    public function discovery_dash()
+    {
+        return view('components.dashboard_components.admin_vol.discovery');
+    }
+    public function coming_soon_dash()
+    {
+        return view('components.dashboard_components.admin_vol.coming_soon');
+    }
 }
+
