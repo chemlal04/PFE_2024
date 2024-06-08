@@ -53,9 +53,11 @@
                                         <a href="{{ url('roles/'.$role->id.'/edit') }}" class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-green-300">
                                             Edit
                                         </a>
+                                        @if ($role->name !== 'super_admin')
                                         <a href="{{ url('roles/'.$role->id.'/delete') }}" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300">
                                             Delete
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
