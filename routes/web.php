@@ -7,8 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/partner', function () {
-    return view('welcomepartner');
+    return view('welcomePartner');
 });
+
 Route::get('/home', [App\Http\Controllers\UserController::class, 'home_dash'])->name('components.dashboard_components.admin_vol.home');
 Route::get('/discovery', [App\Http\Controllers\UserController::class, 'discovery_dash'])->name('components.dashboard_components.admin_vol.discovery');
 Route::get('/community', [App\Http\Controllers\UserController::class, 'community_dash'])->name('components.dashboard_components.admin_vol.community');
@@ -21,9 +22,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
-
-    
+    })->name('dashboard'); 
 });
 Route::middleware([
     'auth:sanctum',

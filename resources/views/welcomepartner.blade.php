@@ -168,8 +168,6 @@
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6">Welcome to MCH-DOX , Esteemed Airline Partners!</div>
 								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-                                    
-
                                     We are thrilled to extend an invitation to your esteemed airline to join our premier platform. At [Your Website Name], we offer you an exceptional opportunity to showcase your aircraft and services to a global audience, enhancing your visibility and reach.
                                     
                                     Why Partner with Us?

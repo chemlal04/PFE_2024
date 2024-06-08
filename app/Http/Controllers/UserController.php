@@ -108,5 +108,6 @@ class UserController extends Controller
     {
         return view('components.dashboard_components.admin_vol.coming_soon');
     }
+    
 }
 
