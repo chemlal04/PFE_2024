@@ -26,6 +26,7 @@ class PermissionSeeder extends Seeder
             'create-transport',
             'edit-transport',
             'delete-transport',
+            'display-vol'
         ];
 
         foreach ($permissions as $permission) {

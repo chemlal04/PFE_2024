@@ -15,6 +15,8 @@ class RoleSeeder extends Seeder
         $adminVolRole = Role::create(['name' => 'admin_vol']);
         $adminHotelRole = Role::create(['name' => 'admin_hotel']);
         $adminTransportRole = Role::create(['name' => 'admin_transport']);
+        $partner = Role::create(['name' => 'partner']);
+
 
         // Fetch all permissions
         $allPermissions = Permission::all();
@@ -26,6 +28,12 @@ class RoleSeeder extends Seeder
 
         // Assign specific permissions to admin_vol role
         $adminVolPermissions = [
+            'display-vol',
+            'edit-vol',
+            'delete-vol',
+        ];
+        $partner = [
+            'display-vol',
             'create-vol',
             'edit-vol',
             'delete-vol',
