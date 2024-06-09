@@ -114,5 +114,14 @@ class UserController extends Controller
     $vols = Vol::all();
     return view('home', compact('vols'));
 }
+public function display_vol_partner()
+{
+    $vols = Vol::all();
+    return view('welcomepartner', compact('vols'));
+}
+public function edit_vols(Vol $vol)
+{
+    return view('edit', compact('vol'));
+}
 }
 

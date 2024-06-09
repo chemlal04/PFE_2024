@@ -3,11 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Permission;
 use App\Http\Controllers\VolController;
+use App\Http\Controllers\UserController;
 
 Route::get('/display_vol', [App\Http\Controllers\UserController::class, 'display_vol'])->name('home');
+Route::get('/display_vol_partner', [App\Http\Controllers\UserController::class, 'display_vol_partner'])->name('welcomepartner');
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('vols/{vol}/edit', [UserController::class, 'edit_vols'])->name('edit');
+Route::put('vols/{vol}', [VolController::class, 'update'])->name('vols.update');
+
 Route::get('/partner', function () {
     return view('welcomePartner');
 });

@@ -15,7 +15,7 @@ class VolSeeder extends Seeder
     {
         DB::table('vols')->insert([
             [
-                
+                'id_client' => 1, // Ensure a user with this ID exists
                 'Nom_vol' => 'Vol Paris - New York',
                 'Ville_depart' => 'Paris',
                 'Vile_arrivee' => 'New York',

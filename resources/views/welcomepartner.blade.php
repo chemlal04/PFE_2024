@@ -1,356 +1,193 @@
+<div class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
+    <!DOCTYPE html>
+    <html lang="en" :class="isDark ? 'dark' : 'light'" x-data="{ isDark: false }">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Mazyar">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/style.css" rel="stylesheet">
+        <meta name="author" content="Mazyar">
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MCH-DOX</title>
-    <meta name="author" content="name">
-    <meta name="description" content="description here">
-    <meta name="keywords" content="keywords,here">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> <!--Replace with your tailwind.css once created-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-<style>
-     html {
-  scroll-behavior: smooth;
-}
-:root{
-::-webkit-scrollbar{height:10px;width:10px}::-webkit-scrollbar-track{background:#efefef;border-radius:6px}::-webkit-scrollbar-thumb{background:#d5d5d5;border-radius:6px}::-webkit-scrollbar-thumb:hover{background:#c4c4c4}
-</style>
-</head>
-<body class="bg-gray-200 font-sans leading-normal tracking-normal">
-    <nav style="background: rgba(27, 1, 1, 0.151) ;" id="header" class="fixed w-full z-30 top-0 text-white">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-          <div class="pl-4 flex items-center">
-            <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-              <!--Icon from: http://www.potlabicons.com/ -->
-              <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
-                <rect fill="#9a6aff" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" />
-                <path
-                  class="plane-take-off"
-                  d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-                />
-              </svg>
-              MCH_VOYAGE
-            </a>
-          </div>
-          <div class="block lg:hidden pr-4">
-            <button id="nav-toggle" class="flex items-center p-1 text-white hover:text-gray-800 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-              <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <title>Accueil_Admin</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-            </button>
-          </div>
-          <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
-            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles
+    
+    </head>
+    
+    <body class="font-montserrat text-sm bg-white dark:bg-zinc-900 " >
+        <div class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 ">
+            <!-- Left Sidebar -->
+            <aside class=" w-1/6 py-10 pl-10  min-w-min  border-r border-gray-300 dark:border-zinc-700  hidden md:block ">
+    
+                <div class=" font-bold text-lg flex items-center gap-x-3">
+                    <svg class="h-8 w-8 fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 15.5v-7c0-.41.47-.65.8-.4l4.67 3.5c.27.2.27.6 0 .8l-4.67 3.5c-.33.25-.8.01-.8-.4Zm11.96-4.45c.58 6.26-4.64 11.48-10.9 10.9 -4.43-.41-8.12-3.85-8.9-8.23 -.26-1.42-.19-2.78.12-4.04 .14-.58.76-.9 1.31-.7v0c.47.17.75.67.63 1.16 -.2.82-.27 1.7-.19 2.61 .37 4.04 3.89 7.25 7.95 7.26 4.79.01 8.61-4.21 7.94-9.12 -.51-3.7-3.66-6.62-7.39-6.86 -.83-.06-1.63.02-2.38.2 -.49.11-.99-.16-1.16-.64v0c-.2-.56.12-1.17.69-1.31 1.79-.43 3.75-.41 5.78.37 3.56 1.35 6.15 4.62 6.5 8.4ZM5.5 4C4.67 4 4 4.67 4 5.5 4 6.33 4.67 7 5.5 7 6.33 7 7 6.33 7 5.5 7 4.67 6.33 4 5.5 4Z"></path>
+                    </svg>        
+                    <div class="tracking-wide dark:text-white">MCH-DOX<span class="text-red-600">.</span></div>
+                </div>
+    
+                <!-- Menu -->
+                <div class="mt-12 flex flex-col gap-y-4 text-gray-500 fill-gray-500 text-sm">
+                    <div class="text-gray-400/70  font-medium uppercase">ADMIN_VOL</div>
+                    <a onclick="showPage('home')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/display_vol') }}">
+    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <!-- Your SVG path here -->
+    </svg>
+    <span>Display vols</span>
+</a>
+
+<a onclick="showPage('community')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/community') }}">
+    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <!-- Your SVG path here -->
+    </svg>
+    <span>Manage vols</span>
+</a>
+
+<a onclick="showPage('coming_soon')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/coming_soon') }}">
+    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <!-- Your SVG path here -->
+    </svg>
+    <span>Coming Soon</span>
+</a>
+
+                    <div onclick="showPage('coming_soon')" class="mt-8 text-gray-400/70  font-medium uppercase">ADMIN_HOTTEL</div>
+                    <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white " href="#">                  
+                        <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2v0C9.23 2 7 4.23 7 7c0 2.76 2.23 5 5 5 2.76 0 5-2.24 5-5v0c0-2.77-2.24-5-5-5Zm0 8v0c-1.66 0-3-1.35-3-3 0-1.66 1.34-3 3-3 1.65 0 3 1.34 3 3v0c0 1.65-1.35 3-3 3Zm9 11v-1 0c0-3.87-3.14-7-7-7h-4v0c-3.87 0-7 3.13-7 7v1h2v-1 0c0-2.77 2.23-5 5-5h4v0c2.76 0 5 2.23 5 5v1Z"></path>
+                        </svg>
+                        <span>Profile</span>
+                    </a>
+                    <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white " href="#">                  
+                        <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M16.6 11.04v-.001c.6-1.04.87-2.25.75-3.44 -.18-1.79-1.18-3.37-2.81-4.44l-1.11 1.66c1.11.742 1.8 1.79 1.91 2.974l-.001 0c.11 1.1-.29 2.2-1.08 2.98l-1.2 1.19 1.61.47c4.23 1.24 4.28 5.49 4.28 5.53h2c0-1.79-.96-5.285-4.4-6.952Z"></path>
+                                <path d="M9.5 12c2.2 0 4-1.8 4-4 0-2.21-1.8-4-4-4 -2.21 0-4 1.79-4 4 0 2.2 1.79 4 4 4Zm0-6c1.1 0 2 .89 2 2 0 1.1-.9 2-2 2 -1.11 0-2-.9-2-2 0-1.11.89-2 2-2Zm1.5 7H8c-3.31 0-6 2.69-6 6v1h2v-1c0-2.21 1.79-4 4-4h3c2.2 0 4 1.79 4 4v1h2v-1c0-3.31-2.7-6-6-6Z"></path>
+                            </g>
+                        </svg>
+                        <span>Friends</span>
+                    </a> 
+                    <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white " href="#">                  
+                        <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M12 2v0C6.47 2 2 6.47 2 12c0 5.52 4.47 10 10 10 5.52 0 10-4.48 10-10v-.001c0-5.53-4.48-10-10-10Zm0 18v0c-4.42 0-8-3.59-8-8 0-4.42 3.58-8 8-8 4.41 0 8 3.58 8 8v0c0 4.41-3.59 8-8 8Z"></path>
+                                <path d="M12 8v0c-2.21 0-4 1.79-4 4 0 2.2 1.79 4 4 4 2.2 0 4-1.8 4-4v0c0-2.21-1.8-4-4-4Zm0 6v0c-1.11 0-2-.9-2-2 0-1.11.89-2 2-2 1.1 0 2 .89 2 2v0c0 1.1-.9 2-2 2Z"></path>
+                            </g>
+                        </svg>
+                        <span>Media</span>
+                    </a>
+                   
+                    <div class="mt-8 text-gray-400/70  font-medium uppercase">General</div>
+                    <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white " href="#">                  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:stroke-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        <span>Settings</span>
+                    </a>
+                    <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="#">                  
+                        <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M16 13v-2H7V8l-5 4 5 4v-3Z"></path>
+                                <path d="M20 3h-9c-1.11 0-2 .89-2 2v4h2V5h9v14h-9v-4H9v4c0 1.1.89 2 2 2h9c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2Z"></path>
+                            </g>
+                        </svg>
+                        <span>Logout</span>
+                    </a> 
+                    <a class=" flex items-center space-x-2 py-1 mt-4" href="#">                  
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-300 appearance-none cursor-pointer"  @click="isDark = !isDark" :value="isDark"/>
+                            <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <label for="toggle" class="">Dark Theme</label>
+                    </a> 
+    
+    
+                </div><!-- /Menu -->
+    
+            </aside><!-- /Left Sidebar -->
+    
+            <main class=" flex-1 py-10  px-5 sm:px-10 ">
+    
                
-                <li class="mr-3">
-                    <a class="inline-block text-gray-800 no-underline hover:text-black hover:text-underline py-2 px-4" href="#details">Home</a>
-                  </li>
-              <li class="mr-3">
-                <a class="inline-block text-gray-800 no-underline hover:text-black hover:text-underline py-2 px-4" href="#detail">Details_partenner</a>
-              </li>
-          <li>
-            @if (Route::has('login'))
-            <div  >
-              @auth
-              <a
-                  href="{{ url('/dashboard') }}"
-                  class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-              >
-                  Dashboard
-              </a>
-          @else
-              <a
-                  href="{{ route('login') }}"
-                  class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-              >
-                  Log in
-              </a>
-  
-              @if (Route::has('register'))
-                  <a
-                      href="{{ route('register') }}"
-                      class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                  >
-                      Register
-                  </a>
-              @endif
-          @endauth
-            </div>
-        @endif
-      </li>
-      </ul>
-          </div>
+    
+            @if(isset($vols))
+<div class="overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nom Vol
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Ville Depart
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Ville Arrivee
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Date Depart
+                </th>
+               
+                <th scope="col" class="px-6 py-3">
+                    Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nombre Places
+                </th>
+               
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($vols as $vol)
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <td class="px-6 py-4 font-medium whitespace-nowrap dark:text-white">{{ $vol->id }}</td>
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Nom_vol }}</td>
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Ville_depart }}</td>
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Vile_arrivee }}</td>
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->date_depart }}</td>
+
+                
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->type }}</td>
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->N_place }}</td>
+   
+                <td class="px-6 py-4 whitespace-nowrap dark:text-white">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+@else
+    <p>No vols data found</p>
+@endif
+    
+                
+    
+            </main>
+    
+            <!-- Right Sidebar -->
+            <!-- /Right Sidebar -->
+    
+    
         </div>
-        <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-      </nav>
-	<!--Header-->
-	<div id="details" class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('image/voyages-2.jpg'); height: 60vh; max-height:460px;">
-			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-				<!--Title-->
-					<p class="text-black font-extrabold text-3xl md:text-5xl">
-						 MCH-DOX
-					</p>
-					<p class="text-xl md:text-2xl text-black">Welcome to my espace</p>
-			</div>
-		</div>
-		
-		<!--Container-->
-		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
-			
-			<div class="mx-0 sm:mx-6">
-				
-				<!--Nav-->
-				<nav class="mt-0 w-full">
-					<div class="container mx-auto flex items-center">
-						<div class="flex w-1/2 justify-end content-center">		
-							<a class="inline-block text-black no-underline hover:text-white hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar" data-tippy-content="@twitter_handle" href="https://twitter.com/intent/tweet?url=#">
-								<svg class="fill-current h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
-							</a>
-							<a class="inline-block text-black no-underline hover:text-white hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar" data-tippy-content="#facebook_id" href="https://www.facebook.com/sharer/sharer.php?u=#">
-								<svg class="fill-current h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
-							</a>
-						</div>
+    
+    </body>
+    
+    </html>
 
-					</div>
-				</nav>
-
-				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-					
-				<!--Lead Card-->
-				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-					 
-						<div class="w-full md:w-1/3 rounded-t">	
-							<img src="image/tour-du-monde-768x823.jpg" class="h-full w-full shadow">
-						</div>
-
-						<div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
-							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-								<p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">	Welcome to MCH-DOX!</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Hello to your space</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-								
-                                    We are delighted to invite airlines and hotels to join our platform, where you can showcase your aircraft and rooms to a global audience. At [Your Website Name], we strive to create a seamless and engaging experience for our users, and we believe that your offerings will greatly enhance the value of our platform.
-
-                                    Why Register with Us?
-                                    
-                                    Global Exposure: Reach a wide audience looking for the best travel and accommodation options.
-                                    User-Friendly Interface: Easily upload and manage your listings with our intuitive tools.
-                                    Dedicated Support: Our team is here to assist you every step of the way.
-                                    Marketing Opportunities: Benefit from our marketing efforts and promotional campaigns.		</p>
-							</div>
-
-							<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-								 
-							</div>
-						</div>
-
-					 
-				</div>
-				<!--/Lead Card-->
-
-
-				<!--Posts Container-->
-				<div class="flex flex-wrap justify-between pt-12 -mx-6" id="detail">
-
-					<!--1/3 col -->
-					 
-				
-					
-					<!--1/3 col -->
-					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="image/hotel-05.jpg" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full font-bold text-xl text-gray-900 px-6">Welcome to MCH-DOX , Esteemed Airline Partners!</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-                                    We are thrilled to extend an invitation to your esteemed airline to join our premier platform. At [Your Website Name], we offer you an exceptional opportunity to showcase your aircraft and services to a global audience, enhancing your visibility and reach.
-                                    
-                                    Why Partner with Us?
-                                    
-                                    Global Reach: Display your fleet to a worldwide audience seeking reliable and luxurious air travel options.
-                                    Seamless Integration: Our user-friendly platform allows for easy upload and management of your aircraft listings.
-                                    Dedicated Support: Our team is committed to assisting you in optimizing your listings and responding to customer inquiries.
-                                    Enhanced Visibility: Benefit from our targeted marketing efforts and promotional campaigns.
-                                    How to Get Started:
-                                    
-                                    Register: Create an account on our platform.
-                                    Showcase Your Fleet: Upload comprehensive details and high-quality images of your aircraft.
-                                    Engage: Connect with potential customers and provide them with exceptional service.								</p>
-							</a>
-							</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							 
-						</div>
-					</div>
-
-					<!--1/3 col -->
-					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
-								<img src="image/1800X-Voyages-en-avion-droits-et-recours.jpg" class="h-64 w-full rounded-t pb-6">
-								<p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-								<div class="w-full  font-bold text-xl text-gray-900 px-6">Welcome to MCH_DOX , Valued Hotel Partners!</div>
-								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									
-
-We are delighted to invite your prestigious hotel to join our distinguished platform. At [Your Website Name], we provide a unique opportunity to showcase your rooms and services to a global audience, significantly enhancing your visibility and customer base.
-
-Why Partner with Us?
-
-International Exposure: Present your hotel rooms and amenities to travelers from around the world.
-Easy-to-Use Platform: Our intuitive interface allows for effortless listing and management of your rooms.
-Comprehensive Support: Our team is here to assist you with any needs, ensuring your listings attract maximum attention.
-Increased Visibility: Leverage our extensive marketing and promotional activities to boost your brand’s presence.
-How to Get Started:
-
-Register: Sign up on our platform.
-List Your Rooms: Provide detailed descriptions and stunning images of your accommodations.
-Connect: Engage with prospective guests and respond to their inquiries promptly.
-								</p>
-							</a>
-						</div>
-						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-							 
-						</div>
-					</div>
- 
-				</div>
-				<!--/ Post Content-->
-						
-			</div>
-			
-			
-				<!--Subscribe-->	
-				<div class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center">
-					<h2 class="font-bold break-normal text-2xl md:text-4xl">Welcome to MCH-DOX!</h2>
-					<h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Take your space and start </h3>
-					<div class="w-full text-center pt-4">
-						<form action="#">
-							<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
-								 
-								<button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">@if (Route::has('login'))
-                                    <div  >
-                                      @auth
-                                      <a
-                                          href="{{ url('/dashboard') }}"
-                                          class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                      >
-                                          Dashboard
-                                      </a>
-                                  @else
-                                      <a
-                                          href="{{ route('login') }}"
-                                          class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                      >
-                                          Log in
-                                      </a>
-                                  @endauth
-                                    </div>
-                                @endif</button>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- /Subscribe-->
-			
-	
-				 
-			 
-			
-		</div>
-	
-
-	</div>
-
-
-    <footer class="bg-green">
-        <div class="container mx-auto px-8">
-          <div class="w-full flex flex-col md:flex-row py-6">
-            <div class="flex-1 mb-6 text-black">
-              <a class="text-grey-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-                <!--Icon from: http://www.potlabicons.com/ -->
-                <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
-                  <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" />
-                  <path
-                    class="plane-take-off"
-                    d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-                  />
-                </svg>
-            MCH_V
-              </a>
-            </div>
-            <div class="flex-1">
-              <p class="uppercase text-gray-600 md:mb-6">Links</p>
-              <ul class="list-reset mb-6">
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">FAQ</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Help</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Support</a>
-                </li>
-              </ul>
-            </div>
-            <div class="flex-1">
-              <p class="uppercase text-gray-600 md:mb-6">Legal</p>
-              <ul class="list-reset mb-6">
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Terms</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Privacy</a>
-                </li>
-              </ul>
-            </div>
-            <div class="flex-1">
-              <p class="uppercase text-gray-600 md:mb-6">Social</p>
-              <ul class="list-reset mb-6">
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Facebook</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Linkedin</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Twitter</a>
-                </li>
-              </ul>
-            </div>
-            <div class="flex-1">
-              <p class="uppercase text-gray-500 md:mb-6">Company</p>
-              <ul class="list-reset mb-6">
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Official Blog</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">About Us</a>
-                </li>
-                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a href="#" class="no-underline hover:underline text-gray-800 hover:text-black">Contact</a>
-                </li>
-              </ul>
-            </div>
-  
-          </div>
-          <!--Copyright section-->
-    <div class="w-full bg-black/5 p-4 text-center text-black">
-      © 2024 Copyright : MOUAD_DOX
-    </div>
-        </div>
-      </footer>
-
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-	<script>
-		//Init tooltips
-		tippy('.avatar')
-	</script>
-</body>
-</html>
+</div>
