@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Vol;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -108,6 +109,10 @@ class UserController extends Controller
     {
         return view('components.dashboard_components.admin_vol.coming_soon');
     }
-    
+    public function display_vol()
+{
+    $vols = Vol::all();
+    return view('home', compact('vols'));
+}
 }
 

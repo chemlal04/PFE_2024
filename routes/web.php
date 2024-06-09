@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Permission;
 use App\Http\Controllers\VolController;
 
-Route::get('/home', [VolController::class, 'index'])->name('components.dashboard_components.admin_vol.home');
+Route::get('/display_vol', [App\Http\Controllers\UserController::class, 'display_vol'])->name('home');
 Route::get('/', function () {
     return view('welcome');
 });

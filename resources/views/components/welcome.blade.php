@@ -28,25 +28,18 @@
                 <!-- Menu -->
                 <div class="mt-12 flex flex-col gap-y-4 text-gray-500 fill-gray-500 text-sm">
                     <div class="text-gray-400/70  font-medium uppercase">ADMIN_VOL</div>
-                    <a onclick="showPage('home')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/home') }}">
+                    <a onclick="showPage('home')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/display_vol') }}">
     <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <!-- Your SVG path here -->
     </svg>
-    <span>Home</span>
+    <span>Display vols</span>
 </a>
 
 <a onclick="showPage('community')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/community') }}">
     <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <!-- Your SVG path here -->
     </svg>
-    <span>Community</span>
-</a>
-
-<a onclick="showPage('discovery')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/discovery') }}">
-    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <!-- Your SVG path here -->
-    </svg>
-    <span>Discovery</span>
+    <span>Manage vols</span>
 </a>
 
 <a onclick="showPage('coming_soon')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/coming_soon') }}">
