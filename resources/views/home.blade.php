@@ -35,7 +35,7 @@
         <tbody>
             @foreach($vols as $vol)
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 text-center even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <td class="{{ $vol->statut === 'approved' ? 'text-white bg-green-500 rounded w-20' : ($vol->statut === 'rejected' ? 'text-white text-center bg-red-500 rounded w-20' : '') }}">{{ $vol->statut }}</td>
+            <td class="{{ $vol->statut === 'active' ? 'text-white bg-green-500 rounded w-20' : ($vol->statut === 'Blocked' ? 'text-white text-center rounded w-20' : '') }}">{{ $vol->statut }}</td>
 
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Nom_vol }}</td>
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Ville_depart }}</td>

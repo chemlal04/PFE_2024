@@ -99,7 +99,7 @@ public function store(Request $request)
     $vol = Vol::findOrFail($id);
 
     $validatedData = $request->validate([
-        'statut' => 'required|in:approved,rejected',
+        'statut' => 'required|in:active,Blocked',
     ]);
 
     $vol->update(['statut' => $validatedData['statut']]);
