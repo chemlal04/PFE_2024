@@ -119,9 +119,7 @@ public function display_vol_partner()
     $vols = Vol::all();
     return view('welcomepartner', compact('vols'));
 }
-public function edit_vols(Vol $vol)
-{
-    return view('edit', compact('vol'));
-}
+
+
 }
 

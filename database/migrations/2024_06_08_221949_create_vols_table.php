@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('vols', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_client'); 
-            $table->foreign('id_client')->references('id')->on('users'); 
             $table->string('Nom_vol');
             $table->string('Ville_depart');
             $table->string('Vile_arrivee');

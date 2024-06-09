@@ -40,14 +40,14 @@
     <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <!-- Your SVG path here -->
     </svg>
-    <span>Display vols</span>
+    <span>Display flights</span>
 </a>
 
-<a onclick="showPage('community')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/community') }}">
+<a onclick="showPage('community')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/create_flight') }}">
     <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <!-- Your SVG path here -->
     </svg>
-    <span>Manage vols</span>
+    <span>Create flights</span>
 </a>
 
 <a onclick="showPage('coming_soon')" class="flex items-center space-x-2 py-1 group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white" href="{{ url('/coming_soon') }}">

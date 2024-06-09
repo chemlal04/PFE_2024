@@ -1,5 +1,5 @@
 @extends('dashboard')
- 
+
 @section('content')
 @if(isset($vols))
 <div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -21,14 +21,12 @@
                 <th scope="col" class="px-6 py-3">
                     Date Depart
                 </th>
-               
                 <th scope="col" class="px-6 py-3">
                     Type
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Nombre Places
                 </th>
-               
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
@@ -42,13 +40,15 @@
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Ville_depart }}</td>
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->Vile_arrivee }}</td>
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->date_depart }}</td>
-
-                
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->type }}</td>
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $vol->N_place }}</td>
-   
                 <td class="px-6 py-4 whitespace-nowrap dark:text-white">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="{{ url('/vols_edit/' . $vol->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <form action="{{ route('vols.destroy', $vol->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ml-4">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
