@@ -25,7 +25,8 @@ class Vol extends Model
         'image5',
         'prix',
         'id_name',
-        'id_user'
+        'id_user',
+        'statut'
     ];
     protected $table = 'vols';
 }

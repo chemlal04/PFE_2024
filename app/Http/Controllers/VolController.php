@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 use App\Models\Vol;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse; 
 
 
 
 class VolController extends Controller
 {
-    public function index()
+    public function approval()
     {
         $vols = Vol::all();
-        return view('components.dashboard_components.admin_vol.home', compact('vols'));
+        return view('approval', compact('vols'));
     }
 
     public function create()
@@ -92,4 +92,20 @@ public function store(Request $request)
 
         return redirect()->route('home')->with('success', 'Flight deleted successfully.');
     }
+   
+
+    public function statusUpdate(Request $request, $id): RedirectResponse
+{
+    $vol = Vol::findOrFail($id);
+
+    $validatedData = $request->validate([
+        'statut' => 'required|in:approved,rejected',
+    ]);
+
+    $vol->update(['statut' => $validatedData['statut']]);
+
+    return redirect()->route('home')->withSuccess('Status request status updated successfully.');
+}
+
+    
 }

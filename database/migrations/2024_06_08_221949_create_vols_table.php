@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('vols', function (Blueprint $table) {
             $table->id();
+            $table->string('statut')->default('En attente');
             $table->unsignedInteger('id_user');
             $table->string('Nom_vol');
             $table->string('id_name');
