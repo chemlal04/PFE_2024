@@ -28,6 +28,21 @@
             </div>
 
             <div class="mb-4">
+                <label for="date_arrivee" class="block text-gray-700">Date Arrivee</label>
+                <input type="date" name="date_arrivee" id="date_arrivee" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
+            </div>
+
+            <div class="mb-4">
+                <label for="H_depart" class="block text-gray-700">Heure Depart</label>
+                <input type="time" name="H_depart" id="H_depart" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
+            </div>
+
+            <div class="mb-4">
+                <label for="H_arrivage" class="block text-gray-700">Heure Arrivage</label>
+                <input type="time" name="H_arrivage" id="H_arrivage" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
+            </div>
+            
+            <div class="mb-4">
                 <label for="type" class="block text-gray-700">Type</label>
                 <input type="text" name="type" id="type" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
             </div>
@@ -36,7 +51,10 @@
                 <label for="N_place" class="block text-gray-700">Nombre Places</label>
                 <input type="number" name="N_place" id="N_place" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
             </div>
-
+            <div class="mb-4">
+                <label for="prix" class="block text-gray-700">Prix</label>
+                <input type="number" name="prix" id="prix" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
+            </div>
             <div class="mt-6">
                 <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Create</button>
                 <a href="{{ url()->previous() }}" class="ml-4 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">Cancel</a>

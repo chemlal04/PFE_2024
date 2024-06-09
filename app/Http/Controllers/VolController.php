@@ -30,13 +30,13 @@ class VolController extends Controller
 
         Vol::create($request->all());
 
-        return redirect()->route('vols.index')->with('success', 'Flight created successfully.');
+        return redirect()->route('home')->with('success', 'Flight created successfully.');
     }
 
     public function edit_vols($id)
     {
         $vol = Vol::findOrFail($id);
-        return view('vols_edit', compact('vol'));
+        return view('edit', compact('vol'));
     }
 
     public function update(Request $request, $id)
@@ -53,7 +53,7 @@ class VolController extends Controller
         $vol = Vol::findOrFail($id);
         $vol->update($request->all());
 
-        return redirect()->route('vols.index')->with('success', 'Flight updated successfully.');
+        return redirect()->route('home')->with('success', 'Flight updated successfully.');
     }
 
     public function destroy($id)
