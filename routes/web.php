@@ -6,7 +6,7 @@ use App\Http\Controllers\VolController;
 use App\Http\Controllers\UserController;
 
 Route::get('/display_vol', [App\Http\Controllers\UserController::class, 'display_vol'])->name('home');
-Route::get('/display_vol_partner', [App\Http\Controllers\UserController::class, 'display_vol_partner'])->name('welcomepartner');
+Route::get('/display_vol_partner', [App\Http\Controllers\UserController::class, 'display_vol_partner'])->name('dash_partner');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -14,7 +14,7 @@ Route::get('vols/{vol}/edit', [UserController::class, 'edit_vols'])->name('edit'
 Route::put('vols/{vol}', [VolController::class, 'update'])->name('vols.update');
 
 Route::get('/partner', function () {
-    return view('welcomePartner');
+    return view('welcomepartner');
 });
 
 Route::get('/home', [App\Http\Controllers\UserController::class, 'home_dash'])->name('components.dashboard_components.admin_vol.home');

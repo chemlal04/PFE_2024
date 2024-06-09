@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Events\Registered;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -29,13 +30,26 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return DB::transaction(function () use ($input) {
-            return tap(User::create([
+            $user = tap(User::create([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
             ]), function (User $user) {
                 $this->createTeam($user);
             });
+
+            // Check if the role parameter is provided in the input
+            $role = $input['role'] ?? null;
+
+            // If the role parameter is 'partner', assign the 'partner' role to the user
+            if ($role === 'partner') {
+                $user->assignRole('partner');
+            }
+
+            // Fire the registered event
+            event(new Registered($user));
+
+            return $user;
         });
     }
 
