@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('vols', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('id_user');
             $table->string('Nom_vol');
+            $table->string('id_name');
             $table->string('Ville_depart');
             $table->string('Vile_arrivee');
             $table->date('date_depart');

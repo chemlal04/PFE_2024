@@ -15,7 +15,8 @@ class VolSeeder extends Seeder
     {
         DB::table('vols')->insert([
             [
-               
+                'id_user'=>1,
+                'id_name'=> 'Mouad Flights',
                 'Nom_vol' => 'Vol Paris - New York',
                 'Ville_depart' => 'Paris',
                 'Vile_arrivee' => 'New York',
@@ -34,7 +35,8 @@ class VolSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],[
-               
+                'id_user'=>2,
+                'id_name'=> 'Mouad Flights',
                 'Nom_vol' => 'Vol Tanger - Agadir',
                 'Ville_depart' => 'Tanger',
                 'Vile_arrivee' => 'Agadir',

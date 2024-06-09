@@ -3,6 +3,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Vol;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
+
+
 
 class VolController extends Controller
 {
@@ -17,21 +22,45 @@ class VolController extends Controller
         return view('vols_create');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'Nom_vol' => 'required|string|max:255',
-            'Ville_depart' => 'required|string|max:255',
-            'Vile_arrivee' => 'required|string|max:255',
-            'date_depart' => 'required|date',
-            'type' => 'required|string|max:255',
-            'N_place' => 'required|integer|min:1',
-        ]);
+   
+public function store(Request $request)
+{
+    // Get the authenticated user
+    $user = Auth::user();
+    $userId = $user->id;
+    $userName = $user->name;
 
-        Vol::create($request->all());
+    // Validate the request data
+    $request->validate([
+        'Nom_vol' => 'required|string|max:255',
+        'Ville_depart' => 'required|string|max:255',
+        'Vile_arrivee' => 'required|string|max:255',
+        'date_depart' => 'required|date',
+        'date_arrivee' => 'required|date',
+        'H_depart' => 'required|date_format:H:i',
+        'H_arrivage' => 'required|date_format:H:i',
+        'type' => 'required|string|max:255',
+        'N_place' => 'required|integer|min:1',
+        'prix' => 'required|numeric|min:0',
+    ]);
 
-        return redirect()->route('home')->with('success', 'Flight created successfully.');
-    }
+    Vol::create([
+        'Nom_vol' => $request->input('Nom_vol'),
+        'Ville_depart' => $request->input('Ville_depart'),
+        'Vile_arrivee' => $request->input('Vile_arrivee'),
+        'date_depart' => $request->input('date_depart'),
+        'date_arrivee' => $request->input('date_arrivee'),
+        'H_depart' => $request->input('H_depart'),
+        'H_arrivage' => $request->input('H_arrivage'),
+        'type' => $request->input('type'),
+        'N_place' => $request->input('N_place'),
+        'prix' => $request->input('prix'),
+        'id_user' => $userId,
+        'id_name' => $userName,
+    ]);
+    return redirect()->route('home')->with('success', 'Flight created successfully.');
+}
+
 
     public function edit_vols($id)
     {
