@@ -26,7 +26,14 @@ class PermissionSeeder extends Seeder
             'create-transport',
             'edit-transport',
             'delete-transport',
-            'display-vol'
+            'display-vol',
+            'manage-roles',
+            'manage-users',
+            'manage-hotels',
+            'manage-transports',
+            'approve-flights',
+            'manage-flights',
+            'approve-hotels',
         ];
 
         foreach ($permissions as $permission) {
